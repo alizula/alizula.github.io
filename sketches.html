@@ -4,10 +4,9 @@
     <title>Sketches — Alireza Jalaei</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" /> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+            *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
       html, body { height: 100%; }
 
       body {
@@ -18,7 +17,6 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        
       }
 
       #block {
@@ -30,7 +28,6 @@
         padding: 2em 2em 4em;
       }
 
-      /* Nav */
       #topnav {
         width: 100%;
         display: flex;
@@ -43,7 +40,6 @@
         font-family: 'Great Vibes', cursive;
         font-size: 2.4em;
         font-weight: 400;
-        letter-spacing: 0.02em;
         color: #1a1a1a;
         text-decoration: none;
         line-height: 1;
@@ -58,16 +54,7 @@
 
       #topnav ul.nav-links > li { position: relative; }
 
-      #topnav ul.nav-links > li > span {
-        font-family: 'Source Serif 4', Georgia, serif;
-        font-size: 1em;
-        font-weight: 400;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        cursor: default;
-        user-select: none;
-      }
-
+      #topnav ul.nav-links > li > span,
       #topnav ul.nav-links > li > a {
         font-family: 'Source Serif 4', Georgia, serif;
         font-size: 1em;
@@ -75,17 +62,23 @@
         letter-spacing: 0.08em;
         text-transform: uppercase;
         text-decoration: none;
+        color: inherit;
         transition: opacity 0.2s;
       }
 
-      #topnav ul.nav-links > li > a:hover { opacity: 0.65; }
+      #topnav ul.nav-links > li > span {
+        cursor: default;
+        user-select: none;
+      }
+
+      #topnav ul.nav-links > li > a:hover,
+      #topnav ul.nav-links > li > span:hover { opacity: 0.65; }
 
       .nav-collections > span { color: #2980b9; }
       .nav-sales       > span { color: #27ae60; }
       .nav-medium      > span { color: #d35400; }
-      .nav-contact     > a    { color: #8e44ad; }
+      .nav-thoughts    > a    { color: #c0392b; }
 
-      /* Dropdown gap fix */
       #topnav ul.nav-links > li > ul.dropdown {
         display: none;
         position: absolute;
@@ -122,13 +115,12 @@
         color: #111;
       }
 
-      
-
-            .page-title {
+      .page-title {
         width: 100%;
-        font-family: 'Great Vibes', cursive;
-        font-size: 4em;
-        font-weight: 400;
+        font-family: 'Source Serif 4', Georgia, serif;
+        font-size: 3.2em;
+        font-weight: 300;
+        letter-spacing: 0.02em;
         color: #1a1a1a;
         margin: 0.8em 0 0.4em 0;
         line-height: 1;
@@ -136,104 +128,64 @@
 
       .divider { width: 100%; height: 4px; background: #1a1a1a; margin-bottom: 2em; }
 
+      @media (max-width: 700px) {
+        #block { padding: 1.5em 1.2em 3em; }
+        #topnav { flex-direction: column; gap: 0.8em; align-items: flex-start; }
+        #topnav ul.nav-links { gap: 1em; flex-wrap: wrap; }
+        .page-title { font-size: 2.2em; }
+      }
+      
       .grid {
         width: 100%;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 16px;
       }
-
       .grid a.grid-item {
-        display: block;
-        overflow: hidden;
-        background: #f0eeeb;
-        aspect-ratio: 1;
+        display: block; overflow: hidden;
+        background: #f0eeeb; aspect-ratio: 1;
       }
-
       .grid a.grid-item img {
         width: 100%; height: 100%;
         object-fit: cover; display: block;
-        transition: transform 0.3s ease;
+        transition: transform 0.3s;
       }
-
       .grid a.grid-item:hover img { transform: scale(1.02); }
-
       .empty-tile {
-        background: #f0eeeb;
-        aspect-ratio: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: 'Source Serif 4', Georgia, serif;
-        font-style: italic;
-        font-size: 0.8em;
-        color: #bbb;
+        background: #f0eeeb; aspect-ratio: 1;
+        display: flex; align-items: center; justify-content: center;
+        font-family: "Source Serif 4", Georgia, serif;
+        font-style: italic; font-size: 0.8em; color: #bbb;
       }
-
-      /* Lightbox */
       #lightbox {
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(0,0,0,0.92);
-        z-index: 9999;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 2em;
+        display: none; position: fixed; inset: 0;
+        background: rgba(0,0,0,0.92); z-index: 9999;
+        flex-direction: column; align-items: center; justify-content: center; padding: 2em;
       }
-
       #lightbox.active { display: flex; }
-
-      #lightbox img {
-        max-width: 90vw;
-        max-height: 75vh;
-        object-fit: contain;
-        display: block;
-      }
-
+      #lightbox img { max-width: 90vw; max-height: 75vh; object-fit: contain; display: block; }
       #lightbox .lb-close {
-        position: absolute;
-        top: 1.2em; right: 1.5em;
-        color: #fff; font-size: 1.8em;
-        cursor: pointer; opacity: 0.7;
-        transition: opacity 0.2s;
-        background: none; border: none; line-height: 1;
+        position: absolute; top: 1.2em; right: 1.5em;
+        color: #fff; font-size: 1.8em; cursor: pointer;
+        opacity: 0.7; background: none; border: none; line-height: 1; transition: opacity 0.2s;
       }
-
       #lightbox .lb-close:hover { opacity: 1; }
-
       #lightbox .lb-acquire {
-        margin-top: 1.4em;
-        display: inline-block;
-        font-family: 'Source Serif 4', Georgia, serif;
-        font-size: 0.9em;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: #fff;
-        text-decoration: none;
-        border: 1px solid rgba(255,255,255,0.6);
-        padding: 0.6em 2em;
-        transition: background 0.2s, border-color 0.2s;
+        margin-top: 1.4em; display: inline-block;
+        font-family: "Source Serif 4", Georgia, serif;
+        font-size: 0.9em; letter-spacing: 0.12em; text-transform: uppercase;
+        color: #fff; text-decoration: none;
+        border: 1px solid rgba(255,255,255,0.6); padding: 0.6em 2em;
+        transition: background 0.2s;
       }
+      #lightbox .lb-acquire:hover { background: rgba(255,255,255,0.1); }
+      @media (max-width: 700px) { .grid { grid-template-columns: repeat(2,1fr); gap: 10px; } }
 
-      #lightbox .lb-acquire:hover {
-        background: rgba(255,255,255,0.1);
-        border-color: #fff;
-      }
-
-      @media (max-width: 700px) {
-        #block { padding: 1.5em 1.2em 3em; }
-        #topnav { flex-direction: column; gap: 0.8em; align-items: flex-start; }
-        #topnav ul.nav-links { gap: 1em; flex-wrap: wrap; }
-        .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } .page-title { font-size: 2.8em; }
-      }
     </style>
   </head>
   <body>
     <div id="block">
-
-      <nav id="topnav">
+            <nav id="topnav">
         <a href="index.html" class="site-name">Alireza Jalaei</a>
         <ul class="nav-links">
           <li class="nav-collections">
@@ -265,59 +217,50 @@
               <li><a href="collage.html">Collage</a></li>
             </div></ul>
           </li>
-          <li class="nav-contact">
-            <a href="https://t.me/alizulla" target="_blank" rel="noopener">Contact</a>
+          <li class="nav-thoughts">
+            <a href="thoughts.html">Thoughts</a>
           </li>
         </ul>
       </nav>
-
-      
-
-            <h1 class="page-title">Sketches</h1>
+      <h1 class="page-title">Sketches</h1>
       <div class="divider"></div>
-
       <div class="grid">
+        
         <!-- ADD NEW PIECES HERE -->
-        <!-- Copy and paste this block for each new image:
-
+        <!-- Copy this block for each new image:
         <a href="images/your-image.jpg" class="grid-item">
-          <img src="images/your-image.jpg" alt="Title of work" />
+          <img src="images/your-image.jpg" alt="Title" />
         </a>
-
         -->
         <div class="empty-tile">Your work will appear here</div>
         <div class="empty-tile">Your work will appear here</div>
         <div class="empty-tile">Your work will appear here</div>
+
       </div>
-
     </div>
-
-        <div id="lightbox">
+    
+    <div id="lightbox">
       <button class="lb-close" onclick="closeLightbox()">&times;</button>
       <img id="lb-img" src="" alt="" />
       <a href="https://t.me/alizulla" target="_blank" rel="noopener" class="lb-acquire">Acquire this work</a>
     </div>
-
     <script>
-      document.querySelectorAll('.grid-item').forEach(function(el) {
-        el.addEventListener('click', function(e) {
+      document.querySelectorAll(".grid-item").forEach(function(el) {
+        el.addEventListener("click", function(e) {
           e.preventDefault();
-          document.getElementById('lb-img').src = this.href;
-          document.getElementById('lightbox').classList.add('active');
+          document.getElementById("lb-img").src = this.href;
+          document.getElementById("lightbox").classList.add("active");
         });
       });
-
       function closeLightbox() {
-        document.getElementById('lightbox').classList.remove('active');
-        document.getElementById('lb-img').src = '';
+        document.getElementById("lightbox").classList.remove("active");
+        document.getElementById("lb-img").src = "";
       }
-
-      document.getElementById('lightbox').addEventListener('click', function(e) {
+      document.getElementById("lightbox").addEventListener("click", function(e) {
         if (e.target === this) closeLightbox();
       });
-
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') closeLightbox();
+      document.addEventListener("keydown", function(e) {
+        if (e.key === "Escape") closeLightbox();
       });
     <\/script>
 

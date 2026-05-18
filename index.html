@@ -4,10 +4,9 @@
     <title>Alireza Jalaei</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" /> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+            *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
       html, body { height: 100%; }
 
       body {
@@ -18,7 +17,6 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
       }
 
       #block {
@@ -27,10 +25,9 @@
         align-items: center;
         width: 100%;
         max-width: 1020px;
-        padding: 2em 2em 2em;
+        padding: 2em 2em 4em;
       }
 
-      /* Nav */
       #topnav {
         width: 100%;
         display: flex;
@@ -43,7 +40,6 @@
         font-family: 'Great Vibes', cursive;
         font-size: 2.4em;
         font-weight: 400;
-        letter-spacing: 0.02em;
         color: #1a1a1a;
         text-decoration: none;
         line-height: 1;
@@ -58,16 +54,7 @@
 
       #topnav ul.nav-links > li { position: relative; }
 
-      #topnav ul.nav-links > li > span {
-        font-family: 'Source Serif 4', Georgia, serif;
-        font-size: 1em;
-        font-weight: 400;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        cursor: default;
-        user-select: none;
-      }
-
+      #topnav ul.nav-links > li > span,
       #topnav ul.nav-links > li > a {
         font-family: 'Source Serif 4', Georgia, serif;
         font-size: 1em;
@@ -75,17 +62,23 @@
         letter-spacing: 0.08em;
         text-transform: uppercase;
         text-decoration: none;
+        color: inherit;
         transition: opacity 0.2s;
       }
 
-      #topnav ul.nav-links > li > a:hover { opacity: 0.65; }
+      #topnav ul.nav-links > li > span {
+        cursor: default;
+        user-select: none;
+      }
+
+      #topnav ul.nav-links > li > a:hover,
+      #topnav ul.nav-links > li > span:hover { opacity: 0.65; }
 
       .nav-collections > span { color: #2980b9; }
       .nav-sales       > span { color: #27ae60; }
       .nav-medium      > span { color: #d35400; }
-      .nav-contact     > a    { color: #8e44ad; }
+      .nav-thoughts    > a    { color: #c0392b; }
 
-      /* Dropdown gap fix */
       #topnav ul.nav-links > li > ul.dropdown {
         display: none;
         position: absolute;
@@ -122,60 +115,47 @@
         color: #111;
       }
 
-            .hero-wrap {
+      .page-title {
         width: 100%;
-        background: #e5e0d8;
-        aspect-ratio: 21 / 9;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .hero-wrap img {
-        width: 100%; height: 100%;
-        object-fit: cover; display: block;
-      }
-
-      .hero-wrap .placeholder {
         font-family: 'Source Serif 4', Georgia, serif;
-        font-style: italic; font-size: 1em;
-        color: #aaa; letter-spacing: 0.05em;
+        font-size: 3.2em;
+        font-weight: 300;
+        letter-spacing: 0.02em;
+        color: #1a1a1a;
+        margin: 0.8em 0 0.4em 0;
+        line-height: 1;
       }
 
-      .divider { width: 100%; height: 5px; background: #1a1a1a; }
-
-      .below-painting {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        padding-top: 0.8em;
-      }
-
-      .social-icons { display: flex; gap: 1.2em; align-items: center; }
-
-      .social-icons a {
-        color: #1a1a1a; font-size: 1.3em;
-        text-decoration: none; transition: opacity 0.2s;
-      }
-
-      .social-icons a:hover { opacity: 0.4; }
-
-      
+      .divider { width: 100%; height: 4px; background: #1a1a1a; margin-bottom: 2em; }
 
       @media (max-width: 700px) {
         #block { padding: 1.5em 1.2em 3em; }
         #topnav { flex-direction: column; gap: 0.8em; align-items: flex-start; }
         #topnav ul.nav-links { gap: 1em; flex-wrap: wrap; }
-        
+        .page-title { font-size: 2.2em; }
       }
+      body { justify-content: center; }
+      #block { padding: 2em; }
+      .hero-wrap {
+        width: 100%; background: #e5e0d8;
+        aspect-ratio: 21/9; overflow: hidden;
+        display: flex; align-items: center; justify-content: center;
+      }
+      .hero-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .hero-wrap .placeholder {
+        font-family: 'Source Serif 4', Georgia, serif;
+        font-style: italic; font-size: 1em; color: #aaa; letter-spacing: 0.05em;
+      }
+      .hero-divider { width: 100%; height: 5px; background: #1a1a1a; }
+      .below-painting { width: 100%; display: flex; justify-content: flex-end; padding-top: 0.8em; }
+      .social-icons { display: flex; gap: 1.2em; }
+      .social-icons a { color: #1a1a1a; font-size: 1.3em; text-decoration: none; transition: opacity 0.2s; }
+      .social-icons a:hover { opacity: 0.4; }
     </style>
   </head>
   <body>
     <div id="block">
-
-      <nav id="topnav">
+            <nav id="topnav">
         <a href="index.html" class="site-name">Alireza Jalaei</a>
         <ul class="nav-links">
           <li class="nav-collections">
@@ -207,21 +187,17 @@
               <li><a href="collage.html">Collage</a></li>
             </div></ul>
           </li>
-          <li class="nav-contact">
-            <a href="https://t.me/alizulla" target="_blank" rel="noopener">Contact</a>
+          <li class="nav-thoughts">
+            <a href="thoughts.html">Thoughts</a>
           </li>
         </ul>
       </nav>
-
-            <div class="hero-wrap">
+      <div class="hero-wrap">
         <!-- ADD YOUR FEATURED IMAGE HERE:
-             Replace the span below with:
-             <img src="images/your-painting.jpg" alt="Painting title" /> -->
+             <img src="images/your-painting.jpg" alt="Title" /> -->
         <span class="placeholder">Your featured work goes here</span>
       </div>
-
-      <div class="divider"></div>
-
+      <div class="hero-divider"></div>
       <div class="below-painting">
         <div class="social-icons">
           <a href="https://instagram.com/innvervision_eth" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
@@ -229,12 +205,6 @@
           <a href="https://t.me/alizulla" target="_blank" rel="noopener" title="Telegram"><i class="fab fa-telegram"></i></a>
         </div>
       </div>
-
-      
-
     </div>
-
-    
-
   </body>
 </html>

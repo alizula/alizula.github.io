@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>Digital Art — Alireza Jalaei</title>
+    <title>Thoughts — Alireza Jalaei</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" /> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -134,53 +134,42 @@
         #topnav ul.nav-links { gap: 1em; flex-wrap: wrap; }
         .page-title { font-size: 2.2em; }
       }
-      
-      .grid {
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
+      .article-list { width: 100%; list-style: none; }
+      .article-list li {
+        border-bottom: 1px solid #e8e8e8;
+        padding: 1.4em 0;
       }
-      .grid a.grid-item {
-        display: block; overflow: hidden;
-        background: #f0eeeb; aspect-ratio: 1;
+      .article-list li:first-child { border-top: 1px solid #e8e8e8; }
+      .article-list li a {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        text-decoration: none;
+        color: #1a1a1a;
+        gap: 2em;
+        transition: opacity 0.2s;
       }
-      .grid a.grid-item img {
-        width: 100%; height: 100%;
-        object-fit: cover; display: block;
-        transition: transform 0.3s;
+      .article-list li a:hover { opacity: 0.55; }
+      .article-title {
+        font-family: 'Source Serif 4', Georgia, serif;
+        font-size: 1.15em;
+        font-weight: 400;
+        line-height: 1.4;
       }
-      .grid a.grid-item:hover img { transform: scale(1.02); }
-      .empty-tile {
-        background: #f0eeeb; aspect-ratio: 1;
-        display: flex; align-items: center; justify-content: center;
-        font-family: "Source Serif 4", Georgia, serif;
-        font-style: italic; font-size: 0.8em; color: #bbb;
+      .article-date {
+        font-family: 'Source Serif 4', Georgia, serif;
+        font-size: 0.82em;
+        font-style: italic;
+        color: #999;
+        white-space: nowrap;
       }
-      #lightbox {
-        display: none; position: fixed; inset: 0;
-        background: rgba(0,0,0,0.92); z-index: 9999;
-        flex-direction: column; align-items: center; justify-content: center; padding: 2em;
+      .empty-note {
+        font-family: 'Source Serif 4', Georgia, serif;
+        font-style: italic;
+        color: #bbb;
+        font-size: 0.95em;
+        padding: 2em 0;
       }
-      #lightbox.active { display: flex; }
-      #lightbox img { max-width: 90vw; max-height: 75vh; object-fit: contain; display: block; }
-      #lightbox .lb-close {
-        position: absolute; top: 1.2em; right: 1.5em;
-        color: #fff; font-size: 1.8em; cursor: pointer;
-        opacity: 0.7; background: none; border: none; line-height: 1; transition: opacity 0.2s;
-      }
-      #lightbox .lb-close:hover { opacity: 1; }
-      #lightbox .lb-acquire {
-        margin-top: 1.4em; display: inline-block;
-        font-family: "Source Serif 4", Georgia, serif;
-        font-size: 0.9em; letter-spacing: 0.12em; text-transform: uppercase;
-        color: #fff; text-decoration: none;
-        border: 1px solid rgba(255,255,255,0.6); padding: 0.6em 2em;
-        transition: background 0.2s;
-      }
-      #lightbox .lb-acquire:hover { background: rgba(255,255,255,0.1); }
-      @media (max-width: 700px) { .grid { grid-template-columns: repeat(2,1fr); gap: 10px; } }
-
     </style>
   </head>
   <body>
@@ -222,47 +211,22 @@
           </li>
         </ul>
       </nav>
-      <h1 class="page-title">Digital Art</h1>
+      <h1 class="page-title">Thoughts</h1>
       <div class="divider"></div>
-      <div class="grid">
-        
-        <!-- ADD NEW PIECES HERE -->
-        <!-- Copy this block for each new image:
-        <a href="images/your-image.jpg" class="grid-item">
-          <img src="images/your-image.jpg" alt="Title" />
-        </a>
+
+      <ul class="article-list">
+        <!-- ADD NEW ARTICLES HERE -->
+        <!-- Copy this block for each new article:
+        <li>
+          <a href="article-your-slug.html">
+            <span class="article-title">Your Article Title</span>
+            <span class="article-date">May 2025</span>
+          </a>
+        </li>
         -->
-        <div class="empty-tile">Your work will appear here</div>
-        <div class="empty-tile">Your work will appear here</div>
-        <div class="empty-tile">Your work will appear here</div>
+        <li class="empty-note">Articles will appear here.</li>
+      </ul>
 
-      </div>
     </div>
-    
-    <div id="lightbox">
-      <button class="lb-close" onclick="closeLightbox()">&times;</button>
-      <img id="lb-img" src="" alt="" />
-      <a href="https://t.me/alizulla" target="_blank" rel="noopener" class="lb-acquire">Acquire this work</a>
-    </div>
-    <script>
-      document.querySelectorAll(".grid-item").forEach(function(el) {
-        el.addEventListener("click", function(e) {
-          e.preventDefault();
-          document.getElementById("lb-img").src = this.href;
-          document.getElementById("lightbox").classList.add("active");
-        });
-      });
-      function closeLightbox() {
-        document.getElementById("lightbox").classList.remove("active");
-        document.getElementById("lb-img").src = "";
-      }
-      document.getElementById("lightbox").addEventListener("click", function(e) {
-        if (e.target === this) closeLightbox();
-      });
-      document.addEventListener("keydown", function(e) {
-        if (e.key === "Escape") closeLightbox();
-      });
-    <\/script>
-
   </body>
 </html>
