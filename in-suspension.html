@@ -1,340 +1,325 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>In Suspension — Alireza Jalaei</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,600&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-		<style>
-			*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-			html, body { height: 100%; }
+  <head>
+    <title>In Suspension — Alireza Jalaei</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { height: 100%; }
 
-			body {
-				font-family: 'Source Serif 4', Georgia, serif;
-				background: #ffffff;
-				color: #1a1a1a;
-				min-height: 100vh;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-			}
+      body {
+        font-family: 'Source Serif 4', Georgia, serif;
+        background: #fff;
+        color: #1a1a1a;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+      }
 
-			#block {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				width: 100%;
-				max-width: 1020px;
-				padding: 2em 2em 4em;
-			}
+      #block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 1020px;
+        padding: 2em 2em 4em;
+      }
 
-			/* Nav */
-			#topnav {
-				width: 100%;
-				display: flex;
-				align-items: baseline;
-				justify-content: space-between;
-				padding-bottom: 0.6em;
-			}
+      /* Nav */
+      #topnav {
+        width: 100%;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        padding-bottom: 0.6em;
+      }
 
-			#topnav .site-name {
-				font-family: 'Playfair Display', Georgia, serif;
-				font-style: italic;
-				font-size: 2em;
-				font-weight: 400;
-				letter-spacing: 0.02em;
-				color: #1a1a1a;
-				text-decoration: none;
-				line-height: 1;
-			}
+      #topnav .site-name {
+        font-family: 'Great Vibes', cursive;
+        font-size: 2.4em;
+        font-weight: 400;
+        letter-spacing: 0.02em;
+        color: #1a1a1a;
+        text-decoration: none;
+        line-height: 1;
+      }
 
-			#topnav ul.nav-links {
-				list-style: none;
-				display: flex;
-				gap: 2.2em;
-				align-items: baseline;
-			}
+      #topnav ul.nav-links {
+        list-style: none;
+        display: flex;
+        gap: 2.2em;
+        align-items: baseline;
+      }
 
-			#topnav ul.nav-links > li { position: relative; }
+      #topnav ul.nav-links > li { position: relative; }
 
-			#topnav ul.nav-links > li > span {
-				font-family: 'Source Serif 4', Georgia, serif;
-				font-size: 1em;
-				font-weight: 400;
-				letter-spacing: 0.08em;
-				text-transform: uppercase;
-				cursor: default;
-				user-select: none;
-			}
+      #topnav ul.nav-links > li > span {
+        font-family: 'Source Serif 4', Georgia, serif;
+        font-size: 1em;
+        font-weight: 400;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        cursor: default;
+        user-select: none;
+      }
 
-			#topnav ul.nav-links > li > a {
-				font-family: 'Source Serif 4', Georgia, serif;
-				font-size: 1em;
-				font-weight: 400;
-				letter-spacing: 0.08em;
-				text-transform: uppercase;
-				text-decoration: none;
-				transition: opacity 0.2s;
-			}
+      #topnav ul.nav-links > li > a {
+        font-family: 'Source Serif 4', Georgia, serif;
+        font-size: 1em;
+        font-weight: 400;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: opacity 0.2s;
+      }
 
-			#topnav ul.nav-links > li > a:hover { opacity: 0.65; }
+      #topnav ul.nav-links > li > a:hover { opacity: 0.65; }
 
-			.nav-collections > span { color: #2980b9; }
-			.nav-sales       > span { color: #27ae60; }
-			.nav-medium      > span { color: #d35400; }
-			.nav-contact     > a    { color: #8e44ad; }
+      .nav-collections > span { color: #2980b9; }
+      .nav-sales       > span { color: #27ae60; }
+      .nav-medium      > span { color: #d35400; }
+      .nav-contact     > a    { color: #8e44ad; }
 
-			#topnav ul.nav-links > li > ul.dropdown {
-				display: none;
-				position: absolute;
-				top: 100%;
-				left: 0;
-				padding-top: 12px;
-				z-index: 100;
-			}
+      /* Dropdown gap fix */
+      #topnav ul.nav-links > li > ul.dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding-top: 12px;
+        z-index: 100;
+      }
 
-			#topnav ul.nav-links > li:hover > ul.dropdown { display: block; }
+      #topnav ul.nav-links > li:hover > ul.dropdown { display: block; }
 
-			.dropdown-inner {
-				background: #fff;
-				border: 1px solid #ddd;
-				list-style: none;
-				padding: 0.5em 0;
-				min-width: 190px;
-				box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-			}
+      .dropdown-inner {
+        background: #fff;
+        border: 1px solid #ddd;
+        list-style: none;
+        padding: 0.5em 0;
+        min-width: 190px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      }
 
-			#topnav ul.nav-links > li > ul.dropdown li a {
-				display: block;
-				font-family: 'Source Serif 4', Georgia, serif;
-				font-size: 0.88em;
-				font-style: italic;
-				color: #333;
-				text-decoration: none;
-				padding: 0.5em 1.3em;
-				transition: background 0.15s;
-			}
+      #topnav ul.nav-links > li > ul.dropdown li a {
+        display: block;
+        font-family: 'Source Serif 4', Georgia, serif;
+        font-size: 0.88em;
+        font-style: italic;
+        color: #333;
+        text-decoration: none;
+        padding: 0.5em 1.3em;
+        transition: background 0.15s;
+      }
 
-			#topnav ul.nav-links > li > ul.dropdown li a:hover {
-				background: #f5f5f5;
-				color: #111;
-			}
+      #topnav ul.nav-links > li > ul.dropdown li a:hover {
+        background: #f5f5f5;
+        color: #111;
+      }
 
-			/* Page title */
-			.page-title {
-				width: 100%;
-				font-family: 'Playfair Display', Georgia, serif;
-				font-style: italic;
-				font-size: 3.5em;
-				font-weight: 400;
-				letter-spacing: 0.01em;
-				color: #1a1a1a;
-				margin: 1em 0 0.6em 0;
-				line-height: 1;
-			}
+      
 
-			.divider {
-				width: 100%;
-				height: 4px;
-				background: #1a1a1a;
-				margin-bottom: 2em;
-			}
+            .page-title {
+        width: 100%;
+        font-family: 'Great Vibes', cursive;
+        font-size: 4em;
+        font-weight: 400;
+        color: #1a1a1a;
+        margin: 0.8em 0 0.4em 0;
+        line-height: 1;
+      }
 
-			/* Grid */
-			.grid {
-				width: 100%;
-				display: grid;
-				grid-template-columns: repeat(3, 1fr);
-				gap: 16px;
-			}
+      .divider { width: 100%; height: 4px; background: #1a1a1a; margin-bottom: 2em; }
 
-			.grid a {
-				display: block;
-				overflow: hidden;
-				background: #f0eeeb;
-			}
+      .grid {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
 
-			.grid a img {
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-				display: block;
-				transition: transform 0.3s ease;
-			}
+      .grid a.grid-item {
+        display: block;
+        overflow: hidden;
+        background: #f0eeeb;
+        aspect-ratio: 1;
+      }
 
-			.grid a:hover img { transform: scale(1.02); }
+      .grid a.grid-item img {
+        width: 100%; height: 100%;
+        object-fit: cover; display: block;
+        transition: transform 0.3s ease;
+      }
 
-			/* Placeholder tiles for empty state */
-			.grid .empty-tile {
-				background: #f0eeeb;
-				aspect-ratio: 1;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				font-family: 'Source Serif 4', Georgia, serif;
-				font-style: italic;
-				font-size: 0.8em;
-				color: #bbb;
-			}
+      .grid a.grid-item:hover img { transform: scale(1.02); }
 
-			/* Full-size overlay */
-			#lightbox {
-				display: none;
-				position: fixed;
-				inset: 0;
-				background: rgba(0,0,0,0.92);
-				z-index: 9999;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-				padding: 2em;
-			}
+      .empty-tile {
+        background: #f0eeeb;
+        aspect-ratio: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Source Serif 4', Georgia, serif;
+        font-style: italic;
+        font-size: 0.8em;
+        color: #bbb;
+      }
 
-			#lightbox.active { display: flex; }
+      /* Lightbox */
+      #lightbox {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.92);
+        z-index: 9999;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2em;
+      }
 
-			#lightbox img {
-				max-width: 90vw;
-				max-height: 75vh;
-				object-fit: contain;
-				display: block;
-			}
+      #lightbox.active { display: flex; }
 
-			#lightbox .lb-close {
-				position: absolute;
-				top: 1.2em;
-				right: 1.5em;
-				color: #fff;
-				font-size: 1.8em;
-				cursor: pointer;
-				opacity: 0.7;
-				transition: opacity 0.2s;
-				background: none;
-				border: none;
-				line-height: 1;
-			}
+      #lightbox img {
+        max-width: 90vw;
+        max-height: 75vh;
+        object-fit: contain;
+        display: block;
+      }
 
-			#lightbox .lb-close:hover { opacity: 1; }
+      #lightbox .lb-close {
+        position: absolute;
+        top: 1.2em; right: 1.5em;
+        color: #fff; font-size: 1.8em;
+        cursor: pointer; opacity: 0.7;
+        transition: opacity 0.2s;
+        background: none; border: none; line-height: 1;
+      }
 
-			#lightbox .lb-acquire {
-				margin-top: 1.4em;
-				display: inline-block;
-				font-family: 'Source Serif 4', Georgia, serif;
-				font-size: 0.9em;
-				letter-spacing: 0.12em;
-				text-transform: uppercase;
-				color: #fff;
-				text-decoration: none;
-				border: 1px solid rgba(255,255,255,0.6);
-				padding: 0.6em 2em;
-				transition: background 0.2s, border-color 0.2s;
-			}
+      #lightbox .lb-close:hover { opacity: 1; }
 
-			#lightbox .lb-acquire:hover {
-				background: rgba(255,255,255,0.1);
-				border-color: #fff;
-			}
+      #lightbox .lb-acquire {
+        margin-top: 1.4em;
+        display: inline-block;
+        font-family: 'Source Serif 4', Georgia, serif;
+        font-size: 0.9em;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #fff;
+        text-decoration: none;
+        border: 1px solid rgba(255,255,255,0.6);
+        padding: 0.6em 2em;
+        transition: background 0.2s, border-color 0.2s;
+      }
 
-			/* Mobile */
-			@media (max-width: 700px) {
-				#block { padding: 1.5em 1.2em 3em; }
-				#topnav { flex-direction: column; gap: 0.8em; align-items: flex-start; }
-				#topnav ul.nav-links { gap: 1em; flex-wrap: wrap; }
-				.grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-				.page-title { font-size: 2.4em; }
-			}
-		</style>
-	</head>
-	<body>
+      #lightbox .lb-acquire:hover {
+        background: rgba(255,255,255,0.1);
+        border-color: #fff;
+      }
 
-		<div id="block">
-			<nav id="topnav">
-				<a href="index.html" class="site-name">Alireza Jalaei</a>
-				<ul class="nav-links">
-					<li class="nav-collections">
-						<span>Collections</span>
-						<ul class="dropdown"><div class="dropdown-inner">
-							<li><a href="all-pieces.html">All Pieces</a></li>
-							<li><a href="hot-summer.html">Hot Summer</a></li>
-							<li><a href="in-suspension.html">In Suspension</a></li>
-						</div></ul>
-					</li>
-					<li class="nav-sales">
-						<span>Sales</span>
-						<ul class="dropdown"><div class="dropdown-inner">
-							<li><a href="physical-art.html">Physical Art</a></li>
-							<li><a href="#" target="_blank" rel="noopener">Objkt</a></li>
-							<li><a href="#" target="_blank" rel="noopener">Highlight</a></li>
-							<li><a href="#" target="_blank" rel="noopener">Transient Lab</a></li>
-						</div></ul>
-					</li>
-					<li class="nav-medium">
-						<span>Medium</span>
-						<ul class="dropdown"><div class="dropdown-inner">
-							<li><a href="color.html">Color</a></li>
-							<li><a href="sketches.html">Sketches</a></li>
-							<li><a href="digital-art.html">Digital Art</a></li>
-							<li><a href="photos.html">Photos</a></li>
-							<li><a href="wallpaper.html">Wallpaper</a></li>
-						</div></ul>
-					</li>
-					<li class="nav-contact">
-						<a href="https://t.me/alizulla" target="_blank" rel="noopener">Contact</a>
-					</li>
-				</ul>
-			</nav>
+      @media (max-width: 700px) {
+        #block { padding: 1.5em 1.2em 3em; }
+        #topnav { flex-direction: column; gap: 0.8em; align-items: flex-start; }
+        #topnav ul.nav-links { gap: 1em; flex-wrap: wrap; }
+        .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } .page-title { font-size: 2.8em; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="block">
 
-			<h1 class="page-title">In Suspension</h1>
-			<div class="divider"></div>
+      <nav id="topnav">
+        <a href="index.html" class="site-name">Alireza Jalaei</a>
+        <ul class="nav-links">
+          <li class="nav-collections">
+            <span>Collections</span>
+            <ul class="dropdown"><div class="dropdown-inner">
+              <li><a href="all-pieces.html">All Pieces</a></li>
+              <li><a href="hot-summer.html">Hot Summer</a></li>
+              <li><a href="in-suspension.html">In Suspension</a></li>
+            </div></ul>
+          </li>
+          <li class="nav-sales">
+            <span>Sales</span>
+            <ul class="dropdown"><div class="dropdown-inner">
+              <li><a href="physical-art.html">Physical Art</a></li>
+              <li><a href="#" target="_blank" rel="noopener">Objkt</a></li>
+              <li><a href="#" target="_blank" rel="noopener">Highlight</a></li>
+              <li><a href="#" target="_blank" rel="noopener">Transient Lab</a></li>
+            </div></ul>
+          </li>
+          <li class="nav-medium">
+            <span>Medium</span>
+            <ul class="dropdown"><div class="dropdown-inner">
+              <li><a href="color.html">Color</a></li>
+              <li><a href="sketches.html">Sketches</a></li>
+              <li><a href="digital-art.html">Digital Art</a></li>
+              <li><a href="photos.html">Photos</a></li>
+              <li><a href="wallpaper.html">Wallpaper</a></li>
+              <li><a href="portraits.html">Portraits</a></li>
+              <li><a href="collage.html">Collage</a></li>
+            </div></ul>
+          </li>
+          <li class="nav-contact">
+            <a href="https://t.me/alizulla" target="_blank" rel="noopener">Contact</a>
+          </li>
+        </ul>
+      </nav>
 
-			<div class="grid">
-				<!-- ADD NEW PIECES HERE -->
-				<!-- Copy and paste this block for each new image you add:
+      
 
-				<a href="images/your-image.jpg" class="grid-item">
-					<img src="images/your-image.jpg" alt="Title of work" />
-				</a>
+            <h1 class="page-title">In Suspension</h1>
+      <div class="divider"></div>
 
-				-->
-				<div class="empty-tile">Your work will appear here</div>
-				<div class="empty-tile">Your work will appear here</div>
-				<div class="empty-tile">Your work will appear here</div>
-			</div>
-		</div>
+      <div class="grid">
+        <!-- ADD NEW PIECES HERE -->
+        <!-- Copy and paste this block for each new image:
 
-		<!-- Lightbox -->
-		<div id="lightbox">
-			<button class="lb-close" onclick="closeLightbox()">&times;</button>
-			<img id="lb-img" src="" alt="" />
-			<a href="https://t.me/alizulla" target="_blank" rel="noopener" class="lb-acquire">Acquire this work</a>
-		</div>
+        <a href="images/your-image.jpg" class="grid-item">
+          <img src="images/your-image.jpg" alt="Title of work" />
+        </a>
 
-		<script>
-			// Open lightbox
-			document.querySelectorAll('.grid-item').forEach(function(el) {
-				el.addEventListener('click', function(e) {
-					e.preventDefault();
-					document.getElementById('lb-img').src = this.href;
-					document.getElementById('lightbox').classList.add('active');
-				});
-			});
+        -->
+        <div class="empty-tile">Your work will appear here</div>
+        <div class="empty-tile">Your work will appear here</div>
+        <div class="empty-tile">Your work will appear here</div>
+      </div>
 
-			// Close on button
-			function closeLightbox() {
-				document.getElementById('lightbox').classList.remove('active');
-				document.getElementById('lb-img').src = '';
-			}
+    </div>
 
-			// Close on backdrop click
-			document.getElementById('lightbox').addEventListener('click', function(e) {
-				if (e.target === this) closeLightbox();
-			});
+        <div id="lightbox">
+      <button class="lb-close" onclick="closeLightbox()">&times;</button>
+      <img id="lb-img" src="" alt="" />
+      <a href="https://t.me/alizulla" target="_blank" rel="noopener" class="lb-acquire">Acquire this work</a>
+    </div>
 
-			// Close on Escape
-			document.addEventListener('keydown', function(e) {
-				if (e.key === 'Escape') closeLightbox();
-			});
-		</script>
+    <script>
+      document.querySelectorAll('.grid-item').forEach(function(el) {
+        el.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.getElementById('lb-img').src = this.href;
+          document.getElementById('lightbox').classList.add('active');
+        });
+      });
 
-	</body>
+      function closeLightbox() {
+        document.getElementById('lightbox').classList.remove('active');
+        document.getElementById('lb-img').src = '';
+      }
+
+      document.getElementById('lightbox').addEventListener('click', function(e) {
+        if (e.target === this) closeLightbox();
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeLightbox();
+      });
+    <\/script>
+
+  </body>
 </html>

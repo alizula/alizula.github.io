@@ -1,261 +1,240 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>Alireza Jalaei</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,600&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-		<style>
-			*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-			html, body { height: 100%; }
+  <head>
+    <title>Alireza Jalaei</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { height: 100%; }
 
-			body {
-				font-family: 'Source Serif 4', Georgia, serif;
-				background: #ffffff;
-				color: #1a1a1a;
-				min-height: 100vh;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-			}
+      body {
+        font-family: 'Source Serif 4', Georgia, serif;
+        background: #fff;
+        color: #1a1a1a;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
 
-			/* ── Central block ── */
-			#block {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				width: 100%;
-				max-width: 1020px;
-				padding: 2em;
-			}
+      #block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 1020px;
+        padding: 2em 2em 2em;
+      }
 
-			/* ── Name + Nav ── */
-			#topnav {
-				width: 100%;
-				display: flex;
-				align-items: baseline;
-				justify-content: space-between;
-				padding-bottom: 0.6em;
-			}
+      /* Nav */
+      #topnav {
+        width: 100%;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        padding-bottom: 0.6em;
+      }
 
-			#topnav .site-name {
-				font-family: 'Playfair Display', Georgia, serif;
-				font-style: italic;
-				font-size: 2em;
-				font-weight: 400;
-				letter-spacing: 0.02em;
-				color: #1a1a1a;
-				text-decoration: none;
-				line-height: 1;
-				text-transform: none;
-			}
+      #topnav .site-name {
+        font-family: 'Great Vibes', cursive;
+        font-size: 2.4em;
+        font-weight: 400;
+        letter-spacing: 0.02em;
+        color: #1a1a1a;
+        text-decoration: none;
+        line-height: 1;
+      }
 
-			#topnav ul.nav-links {
-				list-style: none;
-				display: flex;
-				gap: 2.2em;
-				align-items: baseline;
-			}
+      #topnav ul.nav-links {
+        list-style: none;
+        display: flex;
+        gap: 2.2em;
+        align-items: baseline;
+      }
 
-			#topnav ul.nav-links > li {
-				position: relative;
-			}
+      #topnav ul.nav-links > li { position: relative; }
 
-			#topnav ul.nav-links > li > span {
-				font-family: 'Source Serif 4', Georgia, serif;
-				font-size: 1em;
-				font-weight: 400;
-				letter-spacing: 0.08em;
-				text-transform: uppercase;
-				cursor: default;
-				user-select: none;
-			}
+      #topnav ul.nav-links > li > span {
+        font-family: 'Source Serif 4', Georgia, serif;
+        font-size: 1em;
+        font-weight: 400;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        cursor: default;
+        user-select: none;
+      }
 
-			#topnav ul.nav-links > li > a {
-				font-family: 'Source Serif 4', Georgia, serif;
-				font-size: 1em;
-				font-weight: 400;
-				letter-spacing: 0.08em;
-				text-transform: uppercase;
-				text-decoration: none;
-				transition: opacity 0.2s;
-			}
+      #topnav ul.nav-links > li > a {
+        font-family: 'Source Serif 4', Georgia, serif;
+        font-size: 1em;
+        font-weight: 400;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: opacity 0.2s;
+      }
 
-			#topnav ul.nav-links > li > a:hover { opacity: 0.65; }
+      #topnav ul.nav-links > li > a:hover { opacity: 0.65; }
 
-			.nav-collections > span { color: #2980b9; }
-			.nav-sales       > span { color: #27ae60; }
-			.nav-medium      > span { color: #d35400; }
-			.nav-contact     > a    { color: #8e44ad; }
+      .nav-collections > span { color: #2980b9; }
+      .nav-sales       > span { color: #27ae60; }
+      .nav-medium      > span { color: #d35400; }
+      .nav-contact     > a    { color: #8e44ad; }
 
-			/* Dropdown — extended top padding fixes the gap disappearing bug */
-			#topnav ul.nav-links > li > ul.dropdown {
-				display: none;
-				position: absolute;
-				top: 100%;
-				left: 0;
-				padding-top: 12px;
-				z-index: 100;
-			}
+      /* Dropdown gap fix */
+      #topnav ul.nav-links > li > ul.dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding-top: 12px;
+        z-index: 100;
+      }
 
-			#topnav ul.nav-links > li > ul.dropdown::before {
-				content: '';
-				display: block;
-			}
+      #topnav ul.nav-links > li:hover > ul.dropdown { display: block; }
 
-			#topnav ul.nav-links > li:hover > ul.dropdown { display: block; }
+      .dropdown-inner {
+        background: #fff;
+        border: 1px solid #ddd;
+        list-style: none;
+        padding: 0.5em 0;
+        min-width: 190px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      }
 
-			#topnav ul.nav-links > li > ul.dropdown ul,
-			.dropdown-inner {
-				background: #fff;
-				border: 1px solid #ddd;
-				list-style: none;
-				padding: 0.5em 0;
-				min-width: 190px;
-				box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-			}
+      #topnav ul.nav-links > li > ul.dropdown li a {
+        display: block;
+        font-family: 'Source Serif 4', Georgia, serif;
+        font-size: 0.88em;
+        font-style: italic;
+        color: #333;
+        text-decoration: none;
+        padding: 0.5em 1.3em;
+        transition: background 0.15s;
+      }
 
-			#topnav ul.nav-links > li > ul.dropdown li a {
-				display: block;
-				font-family: 'Source Serif 4', Georgia, serif;
-				font-size: 0.88em;
-				font-style: italic;
-				color: #333;
-				text-decoration: none;
-				padding: 0.5em 1.3em;
-				transition: background 0.15s;
-			}
+      #topnav ul.nav-links > li > ul.dropdown li a:hover {
+        background: #f5f5f5;
+        color: #111;
+      }
 
-			#topnav ul.nav-links > li > ul.dropdown li a:hover {
-				background: #f5f5f5;
-				color: #111;
-			}
+            .hero-wrap {
+        width: 100%;
+        background: #e5e0d8;
+        aspect-ratio: 21 / 9;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-			/* ── Painting ── */
-			.hero-wrap {
-				width: 100%;
-				background: #e5e0d8;
-				aspect-ratio: 21 / 9;
-				overflow: hidden;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-			}
+      .hero-wrap img {
+        width: 100%; height: 100%;
+        object-fit: cover; display: block;
+      }
 
-			.hero-wrap img {
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-				display: block;
-			}
+      .hero-wrap .placeholder {
+        font-family: 'Source Serif 4', Georgia, serif;
+        font-style: italic; font-size: 1em;
+        color: #aaa; letter-spacing: 0.05em;
+      }
 
-			.hero-wrap .placeholder {
-				font-family: 'Source Serif 4', Georgia, serif;
-				font-style: italic;
-				font-size: 1em;
-				color: #aaa;
-				letter-spacing: 0.05em;
-			}
+      .divider { width: 100%; height: 5px; background: #1a1a1a; }
 
-			/* ── Thick line ── */
-			.divider {
-				width: 100%;
-				height: 5px;
-				background: #1a1a1a;
-			}
+      .below-painting {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-top: 0.8em;
+      }
 
-			/* ── Social icons ── */
-			.below-painting {
-				width: 100%;
-				display: flex;
-				align-items: center;
-				justify-content: flex-end;
-				padding-top: 0.8em;
-			}
+      .social-icons { display: flex; gap: 1.2em; align-items: center; }
 
-			.social-icons { display: flex; gap: 1.2em; align-items: center; }
+      .social-icons a {
+        color: #1a1a1a; font-size: 1.3em;
+        text-decoration: none; transition: opacity 0.2s;
+      }
 
-			.social-icons a {
-				color: #1a1a1a;
-				font-size: 1.3em;
-				text-decoration: none;
-				transition: opacity 0.2s;
-			}
+      .social-icons a:hover { opacity: 0.4; }
 
-			.social-icons a:hover { opacity: 0.4; }
+      
 
-			/* ── Mobile ── */
-			@media (max-width: 700px) {
-				#block { padding: 1.5em 1.2em; }
-				#topnav { flex-direction: column; gap: 0.8em; align-items: flex-start; }
-				#topnav ul.nav-links { gap: 1em; flex-wrap: wrap; }
-				.below-painting { justify-content: flex-start; }
-			}
-		</style>
-	</head>
-	<body>
-		<div id="block">
+      @media (max-width: 700px) {
+        #block { padding: 1.5em 1.2em 3em; }
+        #topnav { flex-direction: column; gap: 0.8em; align-items: flex-start; }
+        #topnav ul.nav-links { gap: 1em; flex-wrap: wrap; }
+        
+      }
+    </style>
+  </head>
+  <body>
+    <div id="block">
 
-			<nav id="topnav">
-				<a href="index.html" class="site-name">Alireza Jalaei</a>
-				<ul class="nav-links">
+      <nav id="topnav">
+        <a href="index.html" class="site-name">Alireza Jalaei</a>
+        <ul class="nav-links">
+          <li class="nav-collections">
+            <span>Collections</span>
+            <ul class="dropdown"><div class="dropdown-inner">
+              <li><a href="all-pieces.html">All Pieces</a></li>
+              <li><a href="hot-summer.html">Hot Summer</a></li>
+              <li><a href="in-suspension.html">In Suspension</a></li>
+            </div></ul>
+          </li>
+          <li class="nav-sales">
+            <span>Sales</span>
+            <ul class="dropdown"><div class="dropdown-inner">
+              <li><a href="physical-art.html">Physical Art</a></li>
+              <li><a href="#" target="_blank" rel="noopener">Objkt</a></li>
+              <li><a href="#" target="_blank" rel="noopener">Highlight</a></li>
+              <li><a href="#" target="_blank" rel="noopener">Transient Lab</a></li>
+            </div></ul>
+          </li>
+          <li class="nav-medium">
+            <span>Medium</span>
+            <ul class="dropdown"><div class="dropdown-inner">
+              <li><a href="color.html">Color</a></li>
+              <li><a href="sketches.html">Sketches</a></li>
+              <li><a href="digital-art.html">Digital Art</a></li>
+              <li><a href="photos.html">Photos</a></li>
+              <li><a href="wallpaper.html">Wallpaper</a></li>
+              <li><a href="portraits.html">Portraits</a></li>
+              <li><a href="collage.html">Collage</a></li>
+            </div></ul>
+          </li>
+          <li class="nav-contact">
+            <a href="https://t.me/alizulla" target="_blank" rel="noopener">Contact</a>
+          </li>
+        </ul>
+      </nav>
 
-					<li class="nav-collections">
-						<span>Collections</span>
-						<ul class="dropdown"><div class="dropdown-inner">
-							<li><a href="all-pieces.html">All Pieces</a></li>
-							<li><a href="hot-summer.html">Hot Summer</a></li>
-							<li><a href="in-suspension.html">In Suspension</a></li>
-						</div></ul>
-					</li>
+            <div class="hero-wrap">
+        <!-- ADD YOUR FEATURED IMAGE HERE:
+             Replace the span below with:
+             <img src="images/your-painting.jpg" alt="Painting title" /> -->
+        <span class="placeholder">Your featured work goes here</span>
+      </div>
 
-					<li class="nav-sales">
-						<span>Sales</span>
-						<ul class="dropdown"><div class="dropdown-inner">
-							<li><a href="physical-art.html">Physical Art</a></li>
-							<li><a href="#" target="_blank" rel="noopener">Objkt</a></li>
-							<li><a href="#" target="_blank" rel="noopener">Highlight</a></li>
-							<li><a href="#" target="_blank" rel="noopener">Transient Lab</a></li>
-						</div></ul>
-					</li>
+      <div class="divider"></div>
 
-					<li class="nav-medium">
-						<span>Medium</span>
-						<ul class="dropdown"><div class="dropdown-inner">
-							<li><a href="color.html">Color</a></li>
-							<li><a href="sketches.html">Sketches</a></li>
-							<li><a href="digital-art.html">Digital Art</a></li>
-							<li><a href="photos.html">Photos</a></li>
-							<li><a href="wallpaper.html">Wallpaper</a></li>
-						</div></ul>
-					</li>
+      <div class="below-painting">
+        <div class="social-icons">
+          <a href="https://instagram.com/innvervision_eth" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://x.com/innvervision_eth" target="_blank" rel="noopener" title="X"><i class="fab fa-x-twitter"></i></a>
+          <a href="https://t.me/alizulla" target="_blank" rel="noopener" title="Telegram"><i class="fab fa-telegram"></i></a>
+        </div>
+      </div>
 
-					<li class="nav-contact">
-						<a href="https://t.me/alizulla" target="_blank" rel="noopener">Contact</a>
-					</li>
+      
 
-				</ul>
-			</nav>
+    </div>
 
-			<div class="hero-wrap">
-				<!-- ADD YOUR FEATURED IMAGE HERE:
-				     Replace the span below with:
-				     <img src="images/your-painting.jpg" alt="Painting title" /> -->
-				<span class="placeholder">Your featured work goes here</span>
-			</div>
+    
 
-			<div class="divider"></div>
-
-			<div class="below-painting">
-				<div class="social-icons">
-					<a href="https://instagram.com/innvervision_eth" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
-					<a href="https://x.com/innvervision_eth" target="_blank" rel="noopener" title="X"><i class="fab fa-x-twitter"></i></a>
-					<a href="https://t.me/alizulla" target="_blank" rel="noopener" title="Telegram"><i class="fab fa-telegram"></i></a>
-				</div>
-			</div>
-
-		</div>
-	</body>
+  </body>
 </html>
