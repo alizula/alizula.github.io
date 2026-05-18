@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Alireza Jalaei</title>
+		<title>Photos — Alireza Jalaei</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,600&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" />
@@ -18,20 +18,18 @@
 				display: flex;
 				flex-direction: column;
 				align-items: center;
-				justify-content: center;
 			}
 
-			/* ── Central block ── */
 			#block {
 				display: flex;
 				flex-direction: column;
 				align-items: center;
 				width: 100%;
 				max-width: 1020px;
-				padding: 2em;
+				padding: 2em 2em 4em;
 			}
 
-			/* ── Name + Nav ── */
+			/* Nav */
 			#topnav {
 				width: 100%;
 				display: flex;
@@ -49,7 +47,6 @@
 				color: #1a1a1a;
 				text-decoration: none;
 				line-height: 1;
-				text-transform: none;
 			}
 
 			#topnav ul.nav-links {
@@ -59,9 +56,7 @@
 				align-items: baseline;
 			}
 
-			#topnav ul.nav-links > li {
-				position: relative;
-			}
+			#topnav ul.nav-links > li { position: relative; }
 
 			#topnav ul.nav-links > li > span {
 				font-family: 'Source Serif 4', Georgia, serif;
@@ -90,7 +85,6 @@
 			.nav-medium      > span { color: #d35400; }
 			.nav-contact     > a    { color: #8e44ad; }
 
-			/* Dropdown — extended top padding fixes the gap disappearing bug */
 			#topnav ul.nav-links > li > ul.dropdown {
 				display: none;
 				position: absolute;
@@ -100,14 +94,8 @@
 				z-index: 100;
 			}
 
-			#topnav ul.nav-links > li > ul.dropdown::before {
-				content: '';
-				display: block;
-			}
-
 			#topnav ul.nav-links > li:hover > ul.dropdown { display: block; }
 
-			#topnav ul.nav-links > li > ul.dropdown ul,
 			.dropdown-inner {
 				background: #fff;
 				border: 1px solid #ddd;
@@ -133,75 +121,136 @@
 				color: #111;
 			}
 
-			/* ── Painting ── */
-			.hero-wrap {
+			/* Page title */
+			.page-title {
 				width: 100%;
-				background: #e5e0d8;
-				aspect-ratio: 21 / 9;
-				overflow: hidden;
-				display: flex;
-				align-items: center;
-				justify-content: center;
+				font-family: 'Playfair Display', Georgia, serif;
+				font-style: italic;
+				font-size: 3.5em;
+				font-weight: 400;
+				letter-spacing: 0.01em;
+				color: #1a1a1a;
+				margin: 1em 0 0.6em 0;
+				line-height: 1;
 			}
 
-			.hero-wrap img {
+			.divider {
+				width: 100%;
+				height: 4px;
+				background: #1a1a1a;
+				margin-bottom: 2em;
+			}
+
+			/* Grid */
+			.grid {
+				width: 100%;
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 16px;
+			}
+
+			.grid a {
+				display: block;
+				overflow: hidden;
+				background: #f0eeeb;
+			}
+
+			.grid a img {
 				width: 100%;
 				height: 100%;
 				object-fit: cover;
 				display: block;
+				transition: transform 0.3s ease;
 			}
 
-			.hero-wrap .placeholder {
-				font-family: 'Source Serif 4', Georgia, serif;
-				font-style: italic;
-				font-size: 1em;
-				color: #aaa;
-				letter-spacing: 0.05em;
-			}
+			.grid a:hover img { transform: scale(1.02); }
 
-			/* ── Thick line ── */
-			.divider {
-				width: 100%;
-				height: 5px;
-				background: #1a1a1a;
-			}
-
-			/* ── Social icons ── */
-			.below-painting {
-				width: 100%;
+			/* Placeholder tiles for empty state */
+			.grid .empty-tile {
+				background: #f0eeeb;
+				aspect-ratio: 1;
 				display: flex;
 				align-items: center;
-				justify-content: flex-end;
-				padding-top: 0.8em;
+				justify-content: center;
+				font-family: 'Source Serif 4', Georgia, serif;
+				font-style: italic;
+				font-size: 0.8em;
+				color: #bbb;
 			}
 
-			.social-icons { display: flex; gap: 1.2em; align-items: center; }
+			/* Full-size overlay */
+			#lightbox {
+				display: none;
+				position: fixed;
+				inset: 0;
+				background: rgba(0,0,0,0.92);
+				z-index: 9999;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				padding: 2em;
+			}
 
-			.social-icons a {
-				color: #1a1a1a;
-				font-size: 1.3em;
-				text-decoration: none;
+			#lightbox.active { display: flex; }
+
+			#lightbox img {
+				max-width: 90vw;
+				max-height: 75vh;
+				object-fit: contain;
+				display: block;
+			}
+
+			#lightbox .lb-close {
+				position: absolute;
+				top: 1.2em;
+				right: 1.5em;
+				color: #fff;
+				font-size: 1.8em;
+				cursor: pointer;
+				opacity: 0.7;
 				transition: opacity 0.2s;
+				background: none;
+				border: none;
+				line-height: 1;
 			}
 
-			.social-icons a:hover { opacity: 0.4; }
+			#lightbox .lb-close:hover { opacity: 1; }
 
-			/* ── Mobile ── */
+			#lightbox .lb-acquire {
+				margin-top: 1.4em;
+				display: inline-block;
+				font-family: 'Source Serif 4', Georgia, serif;
+				font-size: 0.9em;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+				color: #fff;
+				text-decoration: none;
+				border: 1px solid rgba(255,255,255,0.6);
+				padding: 0.6em 2em;
+				transition: background 0.2s, border-color 0.2s;
+			}
+
+			#lightbox .lb-acquire:hover {
+				background: rgba(255,255,255,0.1);
+				border-color: #fff;
+			}
+
+			/* Mobile */
 			@media (max-width: 700px) {
-				#block { padding: 1.5em 1.2em; }
+				#block { padding: 1.5em 1.2em 3em; }
 				#topnav { flex-direction: column; gap: 0.8em; align-items: flex-start; }
 				#topnav ul.nav-links { gap: 1em; flex-wrap: wrap; }
-				.below-painting { justify-content: flex-start; }
+				.grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+				.page-title { font-size: 2.4em; }
 			}
 		</style>
 	</head>
 	<body>
-		<div id="block">
 
+		<div id="block">
 			<nav id="topnav">
 				<a href="index.html" class="site-name">Alireza Jalaei</a>
 				<ul class="nav-links">
-
 					<li class="nav-collections">
 						<span>Collections</span>
 						<ul class="dropdown"><div class="dropdown-inner">
@@ -210,7 +259,6 @@
 							<li><a href="in-suspension.html">In Suspension</a></li>
 						</div></ul>
 					</li>
-
 					<li class="nav-sales">
 						<span>Sales</span>
 						<ul class="dropdown"><div class="dropdown-inner">
@@ -220,7 +268,6 @@
 							<li><a href="#" target="_blank" rel="noopener">Transient Lab</a></li>
 						</div></ul>
 					</li>
-
 					<li class="nav-medium">
 						<span>Medium</span>
 						<ul class="dropdown"><div class="dropdown-inner">
@@ -231,31 +278,63 @@
 							<li><a href="wallpaper.html">Wallpaper</a></li>
 						</div></ul>
 					</li>
-
 					<li class="nav-contact">
 						<a href="https://t.me/alizulla" target="_blank" rel="noopener">Contact</a>
 					</li>
-
 				</ul>
 			</nav>
 
-			<div class="hero-wrap">
-				<!-- ADD YOUR FEATURED IMAGE HERE:
-				     Replace the span below with:
-				     <img src="images/your-painting.jpg" alt="Painting title" /> -->
-				<span class="placeholder">Your featured work goes here</span>
-			</div>
-
+			<h1 class="page-title">Photos</h1>
 			<div class="divider"></div>
 
-			<div class="below-painting">
-				<div class="social-icons">
-					<a href="https://instagram.com/innvervision_eth" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
-					<a href="https://x.com/innvervision_eth" target="_blank" rel="noopener" title="X"><i class="fab fa-x-twitter"></i></a>
-					<a href="https://t.me/alizulla" target="_blank" rel="noopener" title="Telegram"><i class="fab fa-telegram"></i></a>
-				</div>
-			</div>
+			<div class="grid">
+				<!-- ADD NEW PIECES HERE -->
+				<!-- Copy and paste this block for each new image you add:
 
+				<a href="images/your-image.jpg" class="grid-item">
+					<img src="images/your-image.jpg" alt="Title of work" />
+				</a>
+
+				-->
+				<div class="empty-tile">Your work will appear here</div>
+				<div class="empty-tile">Your work will appear here</div>
+				<div class="empty-tile">Your work will appear here</div>
+			</div>
 		</div>
+
+		<!-- Lightbox -->
+		<div id="lightbox">
+			<button class="lb-close" onclick="closeLightbox()">&times;</button>
+			<img id="lb-img" src="" alt="" />
+			<a href="https://t.me/alizulla" target="_blank" rel="noopener" class="lb-acquire">Acquire this work</a>
+		</div>
+
+		<script>
+			// Open lightbox
+			document.querySelectorAll('.grid-item').forEach(function(el) {
+				el.addEventListener('click', function(e) {
+					e.preventDefault();
+					document.getElementById('lb-img').src = this.href;
+					document.getElementById('lightbox').classList.add('active');
+				});
+			});
+
+			// Close on button
+			function closeLightbox() {
+				document.getElementById('lightbox').classList.remove('active');
+				document.getElementById('lb-img').src = '';
+			}
+
+			// Close on backdrop click
+			document.getElementById('lightbox').addEventListener('click', function(e) {
+				if (e.target === this) closeLightbox();
+			});
+
+			// Close on Escape
+			document.addEventListener('keydown', function(e) {
+				if (e.key === 'Escape') closeLightbox();
+			});
+		</script>
+
 	</body>
 </html>
