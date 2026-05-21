@@ -307,5 +307,22 @@
       </ul>
 
     </div>
+    <script>
+      // Mobile nav
+      (function() {
+        var btn = document.getElementById('hamburger');
+        var nav = document.querySelector('#topnav ul.nav-links');
+        if (!btn || !nav) return;
+        btn.addEventListener('click', function() {
+          btn.classList.toggle('open');
+          nav.classList.toggle('mobile-open');
+        });
+        document.querySelectorAll('#topnav ul.nav-links > li > span').forEach(function(span) {
+          span.addEventListener('click', function() {
+            span.parentElement.classList.toggle('mob-open');
+          });
+        });
+      })();
+    </script>
   </body>
 </html>

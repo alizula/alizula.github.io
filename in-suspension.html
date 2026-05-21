@@ -321,6 +321,21 @@
       <a href="https://t.me/alizulla?text=Hi%2C%20I%27ve%20seen%20this%20piece%20in%20your%20portfolio%20and%20I%20was%20wondering%20how%20I%20would%20be%20able%20to%20collect%20it." target="_blank" rel="noopener" class="lb-acquire">Acquire This Piece</a>
     </div>
     <script>
+      // Mobile nav
+      (function() {
+        var btn = document.getElementById('hamburger');
+        var nav = document.querySelector('#topnav ul.nav-links');
+        if (!btn || !nav) return;
+        btn.addEventListener('click', function() {
+          btn.classList.toggle('open');
+          nav.classList.toggle('mobile-open');
+        });
+        document.querySelectorAll('#topnav ul.nav-links > li > span').forEach(function(span) {
+          span.addEventListener('click', function() {
+            span.parentElement.classList.toggle('mob-open');
+          });
+        });
+      })();
       document.querySelectorAll(".grid-item").forEach(function(el) {
         el.addEventListener("click", function(e) {
           e.preventDefault();
