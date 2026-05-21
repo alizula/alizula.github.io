@@ -1,0 +1,232 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Art? Yes Please! — Alireza Jalaei</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { height: 100%; }
+      body {
+        font-family: 'Source Serif 4', Georgia, serif;
+        background: #fff;
+        color: #1a1a1a;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      #block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 1020px;
+        padding: 2em 2em 4em;
+      }
+      #topnav {
+        width: 100%;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        padding-bottom: 0.6em;
+        flex-wrap: wrap;
+      }
+      #topnav .site-name {
+        font-family: 'Great Vibes', cursive;
+        font-size: 2.4em;
+        font-weight: 400;
+        color: #1a1a1a;
+        text-decoration: none;
+        line-height: 1;
+      }
+      #topnav ul.nav-links {
+        list-style: none;
+        display: flex;
+        gap: 2.2em;
+        align-items: baseline;
+      }
+      #topnav ul.nav-links > li { position: relative; }
+      #topnav ul.nav-links > li > span,
+      #topnav ul.nav-links > li > a {
+        font-family: 'Source Serif 4', Georgia, serif;
+        font-size: 1em;
+        font-weight: 400;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: inherit;
+        transition: opacity 0.2s;
+      }
+      #topnav ul.nav-links > li > span { cursor: default; user-select: none; }
+      #topnav ul.nav-links > li > a:hover,
+      #topnav ul.nav-links > li > span:hover { opacity: 0.65; }
+      #topnav .nav-collections > span { color: #c0522a; font-weight: 600; }
+      #topnav .nav-sales       > span { color: #3a7d5a; font-weight: 600; }
+      #topnav .nav-medium      > span { color: #b8860b; font-weight: 600; }
+      #topnav .nav-thoughts    > a    { color: #4a5fa0; font-weight: 600; }
+      #topnav ul.nav-links > li > ul.dropdown {
+        display: none; position: absolute;
+        top: 100%; left: 0; padding-top: 12px; z-index: 100;
+      }
+      #topnav ul.nav-links > li:hover > ul.dropdown { display: block; }
+      .dropdown-inner {
+        background: #fff; border: 1px solid #ddd;
+        list-style: none; padding: 0.5em 0;
+        min-width: 190px; box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      }
+      #topnav ul.nav-links > li > ul.dropdown li a {
+        display: block;
+        font-family: 'Source Serif 4', Georgia, serif;
+        font-size: 0.88em; font-style: italic; color: #333;
+        text-decoration: none; padding: 0.5em 1.3em; transition: background 0.15s;
+      }
+      #topnav ul.nav-links > li > ul.dropdown li a:hover { background: #f5f5f5; color: #111; }
+      .divider { width: 100%; height: 4px; background: #1a1a1a; margin-bottom: 2em; }
+      .article-header { width: 100%; margin: 0.8em 0 0.3em; }
+      .article-header h1 {
+        font-family: 'Source Serif 4', Georgia, serif;
+        font-size: 3em; font-weight: 300;
+        letter-spacing: 0.02em; line-height: 1.1; margin-bottom: 0.25em;
+      }
+      .article-meta {
+        font-family: 'Source Serif 4', Georgia, serif;
+        font-size: 0.85em; font-style: italic; color: #999;
+      }
+      .article-body {
+        width: 100%; max-width: 680px; margin: 2em 0;
+      }
+      .article-body p {
+        font-family: 'Source Serif 4', Georgia, serif;
+        font-size: 1.05em; line-height: 1.9; color: #222; margin-bottom: 1.6em;
+      }
+      .article-body p:last-child { margin-bottom: 0; }
+      .back-link {
+        display: inline-block; margin-top: 1em;
+        font-family: 'Source Serif 4', Georgia, serif;
+        font-size: 0.88em; font-style: italic; color: #999;
+        text-decoration: none; border-bottom: 1px solid #ddd; transition: color 0.2s;
+      }
+      .back-link:hover { color: #1a1a1a; }
+
+      /* ── Mobile hamburger nav ── */
+      .hamburger {
+        display: none; background: none; border: none;
+        cursor: pointer; padding: 0.3em; flex-direction: column;
+        gap: 5px; margin-left: auto;
+      }
+      .hamburger span { display: block; width: 24px; height: 2px; background: #1a1a1a; transition: all 0.3s; }
+      .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .hamburger.open span:nth-child(2) { opacity: 0; }
+      .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+      @media (max-width: 700px) {
+        #block { padding: 1.5em 1.2em 3em; }
+        .article-header h1 { font-size: 2em; }
+        .hamburger { display: flex; }
+        #topnav ul.nav-links {
+          display: none !important; flex-direction: column;
+          width: 100%; gap: 0; margin-top: 0.6em;
+          border-top: 1px solid #eee; padding-top: 0.4em;
+        }
+        #topnav ul.nav-links.mobile-open { display: flex !important; }
+        #topnav ul.nav-links > li { width: 100%; }
+        #topnav ul.nav-links > li > span,
+        #topnav ul.nav-links > li > a {
+          display: flex !important; justify-content: space-between;
+          align-items: center; padding: 0.75em 0; font-size: 0.95em;
+          border-bottom: 1px solid #f0f0f0; cursor: pointer;
+        }
+        #topnav ul.nav-links > li > span::after { content: '+'; font-size: 1em; color: #aaa; font-style: normal; font-weight: 400; }
+        #topnav ul.nav-links > li.mob-open > span::after { content: '−'; }
+        #topnav ul.nav-links > li > ul.dropdown { display: none !important; position: static; padding-top: 0; }
+        #topnav ul.nav-links > li.mob-open > ul.dropdown { display: block !important; }
+        .dropdown-inner { border: none; box-shadow: none; background: #fafafa; padding: 0.2em 0 0.4em 1em; min-width: unset; }
+        #topnav ul.nav-links > li > ul.dropdown li a { padding: 0.5em 0.5em; border-bottom: 1px solid #efefef; font-size: 0.92em; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="block">
+      <nav id="topnav">
+        <a href="index.html" class="site-name">Alireza Jalaei</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        <ul class="nav-links">
+          <li class="nav-collections">
+            <span>Collections</span>
+            <ul class="dropdown"><div class="dropdown-inner">
+              <li><a href="all-pieces.html">All Pieces</a></li>
+              <li><a href="hot-summer.html">Hot Summer</a></li>
+              <li><a href="in-suspension.html">In Suspension</a></li>
+            </div></ul>
+          </li>
+          <li class="nav-sales">
+            <span>Sales</span>
+            <ul class="dropdown"><div class="dropdown-inner">
+              <li><a href="physical-art.html">Physical Art</a></li>
+              <li><a href="#" target="_blank" rel="noopener">Objkt</a></li>
+              <li><a href="#" target="_blank" rel="noopener">Highlight</a></li>
+              <li><a href="#" target="_blank" rel="noopener">Transient Lab</a></li>
+            </div></ul>
+          </li>
+          <li class="nav-medium">
+            <span>Medium</span>
+            <ul class="dropdown"><div class="dropdown-inner">
+              <li><a href="color.html">Color</a></li>
+              <li><a href="sketches.html">Sketches</a></li>
+              <li><a href="digital-art.html">Digital Art</a></li>
+              <li><a href="photos.html">Photos</a></li>
+              <li><a href="wallpaper.html">Wallpaper</a></li>
+              <li><a href="portraits.html">Portraits</a></li>
+              <li><a href="collage.html">Collage</a></li>
+            </div></ul>
+          </li>
+          <li class="nav-thoughts">
+            <a href="thoughts.html">Thoughts</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="article-header">
+        <h1>Art? Yes Please!</h1>
+        <p class="article-meta">May 2026</p>
+      </div>
+      <div class="divider"></div>
+
+      <div class="article-body">
+        <p>There is a common confusion about what it means to have an artistic view. Most people assume it is a matter of opinion — that to see artistically is to have strong feelings about paintings, to know which movements matter, to be able to argue why one photographer is more interesting than another. But this misses the point almost entirely. An artistic view is not a set of opinions. It is a set of habits. It is what you linger on, what you avoid, what you repeat without ever quite deciding to. It is attention with a shape.</p>
+
+        <p>Everyone has a perspective on things. The question is not whether yours exists — it does, it always has — but whether you have learned to hear it yet. A perspective does not announce itself. It operates quietly underneath the noise of daily decisions, surfacing only when you look back at a body of work and notice the same angle, the same distance, the same emotional temperature appearing again and again. The perspective was always there. It simply was not shouting.</p>
+
+        <p>Very few artists begin with a clear preoccupation. The ones who seem to — who appear to arrive fully formed with a signature and a subject — are almost always misremembering, or being misremembered. What actually happens is more patient and less dramatic: technique comes first, obsession later. You learn to draw before you know what compels you to draw. You develop a facility with color before you understand why certain palettes unsettle you. The preoccupation condenses over time, not from a single insight but from repeated acts, each one leaving a small residue, until one day the residue has mass.</p>
+
+        <p>This means that right now, at whatever stage you are, your task is not to invent meaning. It is not to decide what your work is about, or to choose a subject worthy of sustained attention. Those things cannot be chosen directly — they can only be discovered indirectly, through accumulation. Your actual task is simpler and stranger: notice repetition. Notice what feels slightly embarrassing but magnetic. Notice what you keep drawing when no one is watching, what you return to in your sketchbook without permission, what you overwork because you cannot leave it alone and what you abandon mid-gesture because something in you flinches. These are not accidents. They are information.</p>
+
+        <p>Meaning accretes like sediment. It does not arrive as revelation — or if it does, the revelation is only the moment you finally see what was already there, built up quietly over months or years of making. You do not decide what your work means. You discover it by doing the same thing three times, then five, then ten, and slowly realizing that you did not choose it consciously. Something else was choosing. Your job is to keep working long enough to find out what that something is — and then, perhaps, to trust it.</p>
+      </div>
+
+      <a href="thoughts.html" class="back-link">← Back to Thoughts</a>
+    </div>
+
+    <script>
+      (function() {
+        var btn = document.getElementById('hamburger');
+        var nav = document.querySelector('#topnav ul.nav-links');
+        if (!btn || !nav) return;
+        btn.addEventListener('click', function() {
+          btn.classList.toggle('open');
+          nav.classList.toggle('mobile-open');
+        });
+        document.querySelectorAll('#topnav ul.nav-links > li > span').forEach(function(span) {
+          span.addEventListener('click', function() {
+            span.parentElement.classList.toggle('mob-open');
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
