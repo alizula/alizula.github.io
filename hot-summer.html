@@ -124,6 +124,12 @@
       function closeLightbox() { document.getElementById("lightbox").classList.remove("active"); document.getElementById("lb-img").src = ""; }
       document.getElementById("lightbox").addEventListener("click", function(e) { if (e.target === this) closeLightbox(); });
       document.addEventListener("keydown", function(e) { if (e.key === "Escape") closeLightbox(); });
+// Reverse grid items so newest (highest number) show first
+      var grid = document.querySelector('.grid');
+      if (grid) {
+        var items = Array.from(grid.children);
+        items.reverse().forEach(function(item) { grid.appendChild(item); });
+      }
     </script>
   </body>
 </html>
